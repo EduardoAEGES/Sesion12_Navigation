@@ -22,44 +22,24 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navegante = rememberNavController()
-            NavHost(navController = navegante, startDestination = "pantalla1" ){
-                composable("pantalla1") { Screen1(navegador = navegante)}
-                composable("pantalla2") { Screen2(navegador = navegante)}
-            }
+            HomeScreen()
         }
     }
 }
 
 @Composable
-fun Screen1(navegador: NavController){
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Yellow)){
-        Text(text = "PANTALLA 1", fontSize = 50.sp)
-        Button(onClick = { navegador.navigate("pantalla2")})
-        {
-            Text(text = "A pantalla 2", fontSize = 40.sp)
-        }
+fun HomeScreen(){
+    val navController = rememberNavController()
+    NavHost(navController = navController, startDestination = "ruta1" ){
+        composable("ruta1") { PantallaUno(navController = navController) }
+        composable("ruta2") { PantallaDos(navController = navController)}
+        composable("ruta3") {PantallaTres(navController = navController)}
     }
 }
 
-@Composable
-fun Screen2(navegador: NavController){
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(Color.Green)){
-        Text(text = "PANTALLA 2", fontSize = 50.sp)
-        Button(onClick = { navegador.navigate("pantalla1") })
-        {
-            Text(text = "A pantalla 1", fontSize = 40.sp)
-        }
-    }
-}
 
 @Preview
 @Composable
 fun Previo(){
-    val navegante = rememberNavController()
-    Screen1(navegador = navegante)
+    HomeScreen()
 }
