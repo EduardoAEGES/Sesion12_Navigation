@@ -27,7 +27,7 @@ fun PantallaTres(navController: NavController){
         modifier = Modifier
             .fillMaxSize()
             .background(Color(124, 203, 213, 255))){
-        Text(text = "Esta es la pantalla tres", fontSize = 30.sp, modifier = Modifier.padding(10.dp))
+        Text(text = "Esta es la pantalla tres, el nombre es Juan", fontSize = 30.sp, modifier = Modifier.padding(10.dp))
         Button(
             onClick = { navController.navigate("ruta1")},
             colors = ButtonDefaults.buttonColors(Color(62, 40, 103, 255))

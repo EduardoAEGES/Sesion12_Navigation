@@ -20,7 +20,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
-fun PantallaDos(navController: NavController){
+fun PantallaDos(navController: NavController, texto1:String){
+
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -28,6 +29,7 @@ fun PantallaDos(navController: NavController){
             .fillMaxSize()
             .background(Color(161, 202, 113, 255))){
         Text(text = "Esta es la pantalla dos", fontSize = 30.sp, modifier = Modifier.padding(10.dp))
+        Text(text = "Tu nombre es $texto1", fontSize = 30.sp, modifier = Modifier.padding(10.dp))
         Button(
             onClick = { navController.navigate("ruta3")},
             colors = ButtonDefaults.buttonColors(Color(92, 29, 51, 255))
